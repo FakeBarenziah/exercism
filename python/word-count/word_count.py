@@ -1,8 +1,9 @@
 import re
 def count_words(sentence):
     word_kit = {}
-    sentence = re.split("\s|,|_|\.|:", sentence)
-    for word in sentence:
+    regex = re.compile(r"\'*[\s\":._,!&@$^%\n]+\'*|\'$")
+    splitted = regex.split(sentence)
+    for word in splitted:
         if word != "":
             if word.lower() in word_kit:
                 word_kit[word.lower()] += 1
